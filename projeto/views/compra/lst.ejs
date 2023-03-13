@@ -1,0 +1,38 @@
+<%- include('../cabecalho.ejs') %>
+<form method="post">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Pesquisar</label>
+        <input name="pesquisar" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Pesquisar">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Pesquisar">
+</form>
+<br>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Nome da Peca</th>
+        <th>Quantidade</th>
+        <th>Preco Total</th>
+        <th>Comprador</th>
+        <th>Editar</th>
+        <th>Deletar</th>
+    </tr>
+    <% Compras.forEach(function(compra){ %>
+        <tr>
+            <td><%=compra._id %></td>
+            <td><%=compra.peca %></td>
+            <td><%=compra.quantidade %></td>
+            <td><%=compra.precoTotal %></td>
+            <td><%=compra.comprador%></td>
+      
+
+            <td>
+                <a href="/admin/compra/edt/<%=compra._id %>">Editar</a>
+            </td>
+            <td>
+                <a href="/admin/compra/del/<%=compra._id %>">Excluir</a>
+            </td>
+        </tr>
+    <% }) %>
+</table>
+<%- include('../rodape.ejs') %>

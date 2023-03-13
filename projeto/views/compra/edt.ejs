@@ -1,0 +1,33 @@
+<%- include('../cabecalho.ejs') %>
+<form method="post">
+    <br><br>
+    ID<br>
+    <input type="text" name="id" readonly value="<%=Compra._id%>">
+    <br><br>
+    Nome da Peca<br> 
+    <select class="form-select" name="peca" aria-label="Selecione uma peca">
+        <% Pecas.forEach(function(peca) { %>
+            <option value="<%= peca._id %>"><%= peca.nome %></option>
+            <% }); %>
+    </select>
+    <br><br>
+    Preco da Peca<br> 
+    <select class="form-select" name="precoPeca" aria-label="Selecione o preco">
+        <% Pecas.forEach(function(peca) { %>
+            <option value="<%= peca.preco %>"><%= peca.nome %></option>
+            <% }); %>
+    </select>
+    <br><br>
+    Quantidade<br>
+    <input type="number" name="quantidade" placeholder="insira a quantidade." value="<%=Compra.quantidade%>">
+    <br><br>
+    Comprador<br>
+    <select class="form-select" name="comprador" aria-label="Selecione o comprador">
+        <% Oficinas.forEach(function(oficina) { %>
+            <option value="<%= oficina._id %>"><%= oficina.nome %></option>
+            <% }); %>
+    </select>
+    <br><br>
+    <input type="submit" value="Editar">
+</form>
+<%- include('../rodape.ejs') %>

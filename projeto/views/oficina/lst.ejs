@@ -1,0 +1,41 @@
+<%- include('../cabecalho.ejs') %>
+<form method="post">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Pesquisar</label>
+        <input name="pesquisar" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Pesquisar">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Pesquisar">
+</form>
+<br>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>telefone</th>
+        <th>endereco</th>
+        <th>propretario</th>
+        <th>cnpj</th>
+        <th>Editar</th>
+        <th>Deletar</th>
+    </tr>
+    <% Oficinas.forEach(function(oficina){ %>
+        <tr>
+            <td><%=oficina._id %></td>
+            <td><%=oficina.nome %></td>
+            <td><%=oficina.email %></td>
+            <td><%=oficina.telefone %></td>
+            <td><%=oficina.endereco %></td>
+            <td><%=oficina.proprietario %></td>
+            <td><%=oficina.cnpj%></td>
+           
+            <td>
+                <a href="/admin/oficina/edt/<%=oficina._id %>">Editar</a>
+            </td>
+            <td>
+                <a href="/admin/oficina/del/<%=oficina._id %>">Excluir</a>
+            </td>
+        </tr>
+    <% }) %>
+</table>
+<%- include('../rodape.ejs') %>

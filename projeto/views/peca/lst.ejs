@@ -1,0 +1,38 @@
+<%- include('../cabecalho.ejs') %>
+<form method="post">
+    <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Pesquisar</label>
+        <input name="pesquisar" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Pesquisar">
+    </div>
+    <input class="btn btn-primary" type="submit" value="Pesquisar">
+</form>
+<br>
+<table class="table table-striped table-hover">
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Descricao</th>
+        <th>Fabricante</th>
+        <th>Cod</th>
+        <th>preco</th>
+        <th>Editar</th>
+        <th>Deletar</th>
+    </tr>
+    <% Pecas.forEach(function(peca){ %>
+        <tr>
+            <td><%=peca._id %></td>
+            <td><%=peca.nome %></td>
+            <td><%=peca.descricao %></td>
+            <td><%=peca.fabricante %></td>
+            <td><%=peca.cod %></td>
+            <td><%=peca.preco %></td>
+            <td>
+                <a href="/admin/peca/edt/<%=peca._id %>">Editar</a>
+            </td>
+            <td>
+                <a href="/admin/peca/del/<%=peca._id %>">Excluir</a>
+            </td>
+        </tr>
+    <% }) %>
+</table>
+<%- include('../rodape.ejs') %>
